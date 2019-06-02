@@ -7,10 +7,22 @@
  * 
  * ['а', 'я', 'о', 'ё', 'у', 'ю', 'ы', 'и', 'э', 'е'].
  *
-*/
+ */
 
 function findVowels(str) {
-    // Напишите код здесь
+    if (str) {
+        const vowels = ['а', 'я', 'о', 'ё', 'у', 'ю', 'ы', 'и', 'э', 'е'];
+        let memo = 0;
+        const res = vowels.find(function (vowel) {
+            for (let letter in str) {
+                if (str[letter] === vowel) {
+                    memo++;
+                };
+            }
+        });
+        return memo;
+    }
+    return "empty string";
 }
 
 // Протестируйте решение, вызывая функцию с разными аргументами:

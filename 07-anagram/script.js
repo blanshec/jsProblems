@@ -9,7 +9,12 @@
 */
 
 function anagram(str1, str2) {
-    // Напишите код здесь
+    const checked = {};
+    
+    checked.word1 = str1.toLowerCase().split("").sort().join("");
+    checked.word2 = str2.toLowerCase().split("").sort().join("");
+
+    return checked.word1 === checked.word2;
 }
 
 // Протестируйте решение, вызывая функцию с разными аргументами:

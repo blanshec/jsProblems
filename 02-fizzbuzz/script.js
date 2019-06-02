@@ -22,7 +22,7 @@ function fizzBuzz(num) {
     //     num -= 1;
     // } while (num !== 0)
     if (num <= 0) {
-        return 1;
+        return 0;
     } else {
         if ((num % 3 == 0) && (num % 5 == 0)) {
             console.log("fizzbuzz " + num);
@@ -32,6 +32,10 @@ function fizzBuzz(num) {
             return fizzBuzz(num - 1);
         } else if (num % 3 == 0) {
             console.log("fizz " + num);
+            return fizzBuzz(num - 1);
+        }
+        else {
+            console.log(num);
             return fizzBuzz(num - 1);
         }
     }
