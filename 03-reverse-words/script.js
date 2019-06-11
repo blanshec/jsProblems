@@ -11,6 +11,7 @@
 function reverseWords(str) {
     const wordArr  = str.split(" ").reverse().join(" ");
 
+    // можно было бы даже не заводить переменную, а сразу написать return str.split(" ").reverse().join(" ");
     return wordArr;
 }
 
@@ -18,3 +19,5 @@ function reverseWords(str) {
 
 console.log(reverseWords('всегда много путей достичь цель есть')); // "есть цель достичь путей много всегда"
 console.log(reverseWords('испробовать их все должны вы')); // "вы должны все их испробовать"
+
+/* Очень короткая, понятная и правильная реализация! */

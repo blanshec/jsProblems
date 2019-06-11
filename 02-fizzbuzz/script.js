@@ -7,40 +7,33 @@
  * • кратные трём — на fizz;
  * • кратные пяти — на buzz;
  * • кратные и трём, и пяти одновременно — на fizzbuzz.
- * 
+ *
  */
 
 function fizzBuzz(num) {
-    // do {
-    //     if ((num % 3 == 0) && (num % 5 == 0)) {
-    //         console.log("fizzbuzz " + num);
-    //     } else if (num % 5 == 0) {
-    //         console.log("buzz " + num);
-    //     } else if (num % 3 == 0) {
-    //         console.log("fizz " + num);
-    //     }
-    //     num -= 1;
-    // } while (num !== 0)
     if (num <= 0) {
-        return 0;
+        return "end of the program";
+        // почему бы не использовать тут сразу else if?
+    } else if ((num % 15 == 0)) { // можно проверить, что делится на 15
+        console.log("fizzbuzz ");
+        return fizzBuzz(num - 1);
+    } else if (num % 5 == 0) {
+        console.log("buzz ");
+        return fizzBuzz(num - 1);
+    } else if (num % 3 == 0) {
+        console.log("fizz ");
+        return fizzBuzz(num - 1);
     } else {
-        if ((num % 3 == 0) && (num % 5 == 0)) {
-            console.log("fizzbuzz " + num);
-            return fizzBuzz(num - 1);
-        } else if (num % 5 == 0) {
-            console.log("buzz " + num);
-            return fizzBuzz(num - 1);
-        } else if (num % 3 == 0) {
-            console.log("fizz " + num);
-            return fizzBuzz(num - 1);
-        }
-        else {
-            console.log(num);
-            return fizzBuzz(num - 1);
-        }
+        console.log(num);
+        return fizzBuzz(num - 1);
     }
 }
+
 
 // Протестируйте решение, вызывая функцию с разными аргументами:
 
 console.log(fizzBuzz(15));
+
+/* Будьте внимательнее при чтении задания, для чисел кратных 3 и 5 не нужно выводить само число,
+ * ну и рекомендую удалять код, который переписали, а не комментировать, такие комментарии зачастую только место занимают и никак не помогают в работе
+ * и не понимаю, зачем функция возвращает 0 */

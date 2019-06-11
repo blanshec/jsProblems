@@ -4,7 +4,7 @@
  * Напишите функцию findVowels(str), принимающую на вход кириллическую
  * строку str  и возвращающую количество гласных, содержащихся в этой строке.
  * Для вашего удобства вот массив кириллических гласных:
- * 
+ *
  * ['а', 'я', 'о', 'ё', 'у', 'ю', 'ы', 'и', 'э', 'е'].
  *
  */
@@ -13,16 +13,23 @@ function findVowels(str) {
     if (str) {
         const vowels = ['а', 'я', 'о', 'ё', 'у', 'ю', 'ы', 'и', 'э', 'е'];
         let memo = 0;
-        const res = vowels.find(function (vowel) {
+
+        // find используется для поиска, здесть было бы уместно использовать forEach
+        // для чего нужна переменная res?
+
+        vowels.forEach(function(vowel) {
             for (let letter in str) {
-                if (str[letter] === vowel) {
+                if (str[letter].toLowerCase() === vowel) {
                     memo++;
                 };
             }
         });
         return memo;
     }
-    return "empty string";
+
+    // в пустой строке 0 гласных, вообще если функция возвращает число, то лучше бы, чтобы она всегда число возвращала
+    // например, find если ничего не найдет, то возвращает не текст о том, что не нашел, а -1
+    return -1;
 }
 
 // Протестируйте решение, вызывая функцию с разными аргументами:
@@ -30,3 +37,8 @@ function findVowels(str) {
 console.log(findVowels('здравствуй')); // 2
 console.log(findVowels('привет')); // 2
 console.log(findVowels('хеллоу')); // 3
+console.log(findVowels('хлл')); // 0
+console.log(findVowels('')); // -1
+console.log(findVowels('АААА')); // 4
+
+/* функция не учитывает заглавные буквы и возвращает не то значение для пустой строки */

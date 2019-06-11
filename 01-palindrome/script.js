@@ -7,17 +7,19 @@
  *
  * Напишите функцию palindrome(str), принимающую как аргумент строку.
  * Функция должна вернуть true, если строка — палиндром, и false, если нет.
- * 
+ *
  * Считайте, что на вход всегда передаётся слово: то есть знаков препинания
  * и пробелов в аргументе быть не может.
- * 
+ *
 */
 
 function palindrome(str) {
     const specChar = /[`~!@#$%^&*()_|+\-=÷¿?;:'",.<>\{\}\[\]\\\/]/g;
-    
-    let strLowerCase = str.toLowerCase().replace(specChar, "").split(" ").join("");
-    let reverseString = strLowerCase.split("").reverse().join("");
+
+    // strLowerCase и reverseString могли бы быть const, они ведь один раз вычисляются и больше не изменяются
+
+    const strLowerCase = str.toLowerCase().replace(specChar, "").split(" ").join("");
+    const reverseString = strLowerCase.split("").reverse().join("");
 
     return reverseString === strLowerCase;
 }
@@ -32,7 +34,9 @@ console.log(palindrome('О, лета тело!')); // true
 /*
  * Бонус. Задача для любознательных. Пусть функция принимает на вход любую строку,
  * но пробелы и знаки препинания не учитывает. Например:
- * 
+ *
  * palindrome('О, лета тело!'); // true
- * 
+ *
 */
+
+/* Отличная работа! Все верно работает и понятный код =) */
